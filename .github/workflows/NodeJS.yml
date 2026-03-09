@@ -80,10 +80,10 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN}}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL}}
   
-   sonar-backend:
-     runs-on: Agent-1
-     needs: sonar-frontend
-     steps:
+    sonar-backend:
+      runs-on: Agent-1
+      needs: sonar-frontend
+      steps:
        - name: Checkout Code
          uses: actions/checkout@v4
 
@@ -98,4 +98,4 @@ jobs:
              -Dsonar.exclusions=**/node_modules/**,**/dist/**,**/build/**
          env:
            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN}}
-           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL}}  
+           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL}}
