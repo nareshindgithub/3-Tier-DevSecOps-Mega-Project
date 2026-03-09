@@ -79,6 +79,26 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN}}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL}}
+
+   sonar-backend:
+     runs-on: Agent-1
+     needs: sonar-frontend
+     steps:
+       - name: Checkout Code
+         uses: actions/checkout@v4
+
+       - name: Sonarqube Scan (api)
+         uses: sonarsource/sonarqube-scan-action@master
+         with:
+           projectBaseDir: api
+           args: >
+             -Dsonar.projectKey=myorg_client
+             -Dsonar.projectName=myorg_client
+             -Dsonar.sources=.
+             -Dsonar.exclusions=**/node_modules/**,**/dist/**,**/build/**
+         env:
+           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN}}
+           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL}}
   
             
 
