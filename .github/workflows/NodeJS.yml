@@ -70,10 +70,10 @@ jobs:
         - name: Install unzip
           run: sudo apt-get install -y unzip
 
-        - name: Sonarqube Scan (Client)
+        - name: Sonarqube Scan (client)
           uses: sonarsource/sonarqube-scan-action@master
           with:
-            projectBaseDir: Client
+            projectBaseDir: client
             args: >
               -Dsonar.projectKey=myorg_client
               -Dsonar.projectName=myorg_client
