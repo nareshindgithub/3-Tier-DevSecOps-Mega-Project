@@ -166,7 +166,7 @@ jobs:
           uses: aquasecurity/trivy-action@master
           with:
             scan-type: image
-            image-ref: nareshindgithub/backend
+            image-ref: nareshind/backend
             format: table
             exit-code: '0'
             ignore-unfixed: true
@@ -177,7 +177,7 @@ jobs:
           uses: aquasecurity/trivy-action@master
           with:
             scan-type: image
-            image-ref: nareshindgithub/frontend
+            image-ref: nareshind/frontend
             format: table
             exit-code: '0'
             ignore-unfixed: true
