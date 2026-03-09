@@ -58,5 +58,31 @@ jobs:
            format: 'table'
            ignore-unfixed: true
            vuln-type: 'os,library'
-           severity: 'CRITICAL,HIGH'   
+           severity: 'CRITICAL,HIGH'
+
+  sonar-frontend:
+    runs-on: Agent-1
+    needs: trivy_fs_scan
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Sonarqube Scan (Client)
+        uses: sonarsource/sonarqube-scan-action@master
+        with:
+          projectBaseDir: Client
+          args: >
+            -Dsonar.projectKey=myorg_client
+            -Dsonar.projectName=myorg_client
+            -Dsonar.sources=.
+            -Dsonar.exclusions=**/node_modules/**,**/dist/**,**/build/**
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN}}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL}}
+  
+            
+
+      
+      
+
 
