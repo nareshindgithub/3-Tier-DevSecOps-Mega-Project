@@ -166,21 +166,21 @@ jobs:
         - name: Run trivy image scan for backend
           uses: aquasecurity/trivy-action@master
           with:
-            scan-type: image
-            image-ref: nareshind/backend
-            format: table
+            scan-type: 'image'
+            image-ref: 'nareshind/backend'
+            format: 'table'
             exit-code: '0'
             ignore-unfixed: true
-            vuln-type: os,library
-            severity: CRITICAL, HIGH
+            vuln-type: 'os,library'
+            severity: 'CRITICAL,HIGH'
             
         - name: Run trivy image scan for frontend
           uses: aquasecurity/trivy-action@master
           with:
-            scan-type: image
-            image-ref: nareshind/frontend
-            format: table
+            scan-type: 'image'
+            image-ref: 'nareshind/frontend'
+            format: 'table'
             exit-code: '0'
             ignore-unfixed: true
-            vuln-type: os,library
-            severity: CRITICAL, HIGH
+            vuln-type: 'os,library'
+            severity: 'CRITICAL,HIGH'
