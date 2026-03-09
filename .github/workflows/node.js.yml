@@ -53,7 +53,6 @@ jobs:
        - name: Run Trivy Vulnerability scanner
          uses: aquasecurity/trivy-action@master
          with:
-           token-setup-trivy: ${{ secrets.GITHUB_TOKEN }}
            scan-type: 'fs'
            scan-ref: '.'
            format: 'table'
